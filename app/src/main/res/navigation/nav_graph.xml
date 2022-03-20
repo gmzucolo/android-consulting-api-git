@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/repositoryFragment"
-        android:name="com.example.gmzucolo.appconsultingapigit.RepositoryFragment"
+        android:name="com.example.gmzucolo.appconsultingapigit.ListPullRequestFragment"
         android:label="fragment_repository"
-        tools:layout="@layout/fragment_repository" >
+        tools:layout="@layout/fragment_list_pull_request" >
         <action
             android:id="@+id/action_repositoryFragment_to_listRepositoryFragment"
             app:destination="@id/listRepositoryFragment"
