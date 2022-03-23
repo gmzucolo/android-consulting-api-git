@@ -10,7 +10,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.gmzucolo.appconsultingapigit.model.PullRequest
-import com.example.gmzucolo.appconsultingapigit.model.User
 import layout.ListPullRequestAdapter
 
 class ListPullRequestFragment : Fragment() {
@@ -20,9 +19,13 @@ class ListPullRequestFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list_pull_request, container, false)
-        val txtView2 = view.findViewById<TextView>(R.id.txtView2)
+        return inflater.inflate(R.layout.fragment_list_pull_request, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val txtView2 = view.findViewById<TextView>(R.id.txtView2)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewListPullRequest)
         recyclerView.adapter = ListPullRequestAdapter(listPullRequest(), this.requireContext())
         val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
@@ -33,12 +36,12 @@ class ListPullRequestFragment : Fragment() {
                 .navigate(R.id.action_repositoryFragment_to_listRepositoryFragment)
         }
 
-        return view
+
     }
 
     private fun listPullRequest(): List<PullRequest> {
         return listOf(
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala", ),
+            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
             PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
             PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
             PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
