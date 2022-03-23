@@ -17,7 +17,7 @@ class ListPullRequestAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PullRequestViewHolder {
         val view =
-            LayoutInflater.from(context).inflate(R.layout.item_pull_request_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_pull_request_list, parent, false)
         return PullRequestViewHolder(view)
     }
 
