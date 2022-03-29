@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.gmzucolo.appconsultingapigit.model.PullRequest
+import com.example.gmzucolo.appconsultingapigit.model.fakePullRequests
 import layout.ListPullRequestAdapter
 
 class ListPullRequestFragment : Fragment() {
@@ -26,10 +26,10 @@ class ListPullRequestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val txtView2 = view.findViewById<TextView>(R.id.txtView2)
+
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewListPullRequest)
-        recyclerView.adapter = ListPullRequestAdapter(listPullRequest(), this.requireContext())
-        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = ListPullRequestAdapter(fakePullRequests())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         txtView2.setOnClickListener {
             Navigation.findNavController(view)
@@ -39,22 +39,4 @@ class ListPullRequestFragment : Fragment() {
 
     }
 
-    private fun listPullRequest(): List<PullRequest> {
-        return listOf(
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-            PullRequest("Gustavo Repo", "PullReques 01", "lalala"),
-        )
-
-    }
 }

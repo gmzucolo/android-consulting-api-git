@@ -11,13 +11,13 @@ import com.example.gmzucolo.appconsultingapigit.R
 import com.example.gmzucolo.appconsultingapigit.model.PullRequest
 
 class ListPullRequestAdapter(
-    private val listPullRequest: List<PullRequest>,
-    private val context: Context
-) : RecyclerView.Adapter<PullRequestViewHolder>() {
+    private val listPullRequest: MutableList<PullRequest>
+) : RecyclerView.Adapter<ListPullRequestAdapter.PullRequestViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PullRequestViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_pull_request_list, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_pull_request_list, parent, false)
         return PullRequestViewHolder(view)
     }
 
@@ -28,20 +28,15 @@ class ListPullRequestAdapter(
     override fun getItemCount(): Int {
         return listPullRequest.size
     }
-}
 
-class PullRequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bindView(pullrequest: PullRequest) {
-        val title: TextView = itemView.findViewById(R.id.appCompatTextViewPullRequestTitle)
-        val description: TextView =
-            itemView.findViewById(R.id.appCompatTextViewPullRequestDescription)
-        val avatar =
-            itemView.findViewById<ImageView>(R.id.appCompatImageViewPullRequestUserAvatar)
-        val user = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestUserName)
+    inner class PullRequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        title.text = pullrequest.title
-        description.text = pullrequest.description
-//            user.text = pullrequest.user.toString()
+        fun bindView(pullrequest: PullRequest) {
+            with(pullrequest) {
+                val mTitle = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestTitle)
+            mTitle.text = title.first().toString()
+            }
+        }
     }
 }
