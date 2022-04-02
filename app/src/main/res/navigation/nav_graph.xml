@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listRepositoryFragment"
-        android:name="com.example.gmzucolo.appconsultingapigit.ListRepositoryFragment"
+        android:name="com.example.gmzucolo.appconsultingapigit.features.repositories.view.ListRepositoryFragment"
         android:label="fragment_list_repository"
         tools:layout="@layout/fragment_list_repository">
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/repositoryFragment"
-        android:name="com.example.gmzucolo.appconsultingapigit.ListPullRequestFragment"
+        android:name="com.example.gmzucolo.appconsultingapigit.features.pullrequests.view.ListPullRequestFragment"
         android:label="fragment_repository"
         tools:layout="@layout/fragment_list_pull_request" >
         <action

@@ -1,4 +1,4 @@
-package com.example.gmzucolo.appconsultingapigit.model
+package com.example.gmzucolo.appconsultingapigit.features.pullrequests.model
 
 data class PullRequest(
     val title: String,
@@ -44,5 +44,30 @@ fun fakePullRequests():MutableList<PullRequest> = mutableListOf(
         description = "teste"
         state = "teste"
         username = User("teste", "teste")
-    })
+    },
+    pullRequest {
+        title = "gustavo"
+        description = "teste"
+        state = "teste"
+        username = User("teste", "teste")
+    },
+    pullRequest {
+        title = "gustavo"
+        description = "teste"
+        state = "teste"
+        username = User("teste", "teste")
+    },
+    pullRequest {
+        title = "gustavo"
+        description = "teste"
+        state = "teste"
+        username = User("teste", "teste")
+    },
+    pullRequest {
+        title = "gustavo"
+        description = "teste"
+        state = "teste"
+        username = User("teste", "teste")
+    }
+)
 

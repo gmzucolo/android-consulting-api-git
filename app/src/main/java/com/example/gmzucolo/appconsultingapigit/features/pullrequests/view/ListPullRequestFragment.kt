@@ -1,4 +1,4 @@
-package com.example.gmzucolo.appconsultingapigit
+package com.example.gmzucolo.appconsultingapigit.features.pullrequests.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,37 +9,34 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gmzucolo.appconsultingapigit.model.fakePullRequests
-import layout.ListPullRequestAdapter
+import com.example.gmzucolo.appconsultingapigit.R
+import com.example.gmzucolo.appconsultingapigit.features.pullrequests.model.fakePullRequests
 
-class ListRepositoryFragment : Fragment() {
-
-    private var recyclerView: RecyclerView? = null
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: ListRepositoryAdapter? = null
+class ListPullRequestFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_repository, container, false)
+        return inflater.inflate(R.layout.fragment_list_pull_request, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val txtView1 = view.findViewById<TextView>(R.id.txtView1)
+        val txtView2 = view.findViewById<TextView>(R.id.txtView2)
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewListRepository)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewListPullRequest)
         recyclerView.adapter = ListPullRequestAdapter(fakePullRequests())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        txtView1.setOnClickListener {
+        txtView2.setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(R.id.action_listRepositoryFragment_to_repositoryFragment)
+                .navigate(R.id.action_repositoryFragment_to_listRepositoryFragment)
         }
 
 
     }
+
 }

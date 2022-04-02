@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListRepositoryFragment">
+    tools:context=".features.repositories.view.ListRepositoryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewListRepository"
