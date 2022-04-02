@@ -4,16 +4,16 @@ data class Repository(
     val title: String,
     val description: String,
     val owner: String,
-    val forksCount: Int,
-    val stargazersCount: Int
+    val forksCount: String,
+    val stargazersCount: String
 )
 
 class RepositoryBuilder {
     var name: String = ""
     var description: String = ""
     var owner: String = ""
-    var forksCount: Int = 1
-    var stargazersCount: Int = 1
+    var forksCount: String = "10"
+    var stargazersCount: String = "20"
 
     fun build(): Repository = Repository(name, description, owner, forksCount, stargazersCount)
 }
@@ -26,70 +26,81 @@ fun fakeRepositories(): MutableList<Repository> = mutableListOf(
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
+        forksCount = "10"
+        stargazersCount = "20"
     },
     repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
+        forksCount = "10"
+        stargazersCount = "20"
     },
     repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    },
-    repository {
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
         name = "Carol"
         description = "test repository"
         owner = "Carol"
-        forksCount = 10
-        stargazersCount = 20
-    }
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
+        name = "Carol"
+        description = "test repository"
+        owner = "Carol"
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
+        name = "Carol"
+        description = "test repository"
+        owner = "Carol"
+        forksCount = "10"
+        stargazersCount = "20"
+    },    repository {
+        name = "Carol"
+        description = "test repository"
+        owner = "Carol"
+        forksCount = "10"
+        stargazersCount = "20"
+    },
 )

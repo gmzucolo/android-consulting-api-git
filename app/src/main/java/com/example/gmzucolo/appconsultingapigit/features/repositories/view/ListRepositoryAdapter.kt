@@ -20,7 +20,7 @@ class ListRepositoryAdapter(
     }
 
     override fun onBindViewHolder(holderRepository: RepositoryViewHolder, position: Int) {
-        holderRepository.bindView(listRepositories[position])
+        holderRepository.binding(listRepositories[position])
     }
 
     override fun getItemCount(): Int {
@@ -30,10 +30,18 @@ class ListRepositoryAdapter(
 
     inner class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(repository: Repository) {
+        fun binding(repository: Repository) {
             with(repository) {
                 val mTitle = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryTitle)
-                mTitle.text = title.first().toString()
+                mTitle.text = title
+                val mDescription = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryDescription)
+                mDescription.text = description
+                val mOwner = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestUserName)
+                mOwner.text = owner
+                val mForksCount = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryNumberForks)
+                mForksCount.text = forksCount
+                val mStargazersCount = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryStars)
+                mStargazersCount.text = forksCount
             }
         }
     }

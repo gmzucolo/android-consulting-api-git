@@ -20,7 +20,7 @@ class ListPullRequestAdapter(
     }
 
     override fun onBindViewHolder(holderPullRequest: PullRequestViewHolder, position: Int) {
-        holderPullRequest.bindView(listPullRequest[position])
+        holderPullRequest.binding(listPullRequest[position])
     }
 
     override fun getItemCount(): Int {
@@ -30,10 +30,14 @@ class ListPullRequestAdapter(
 
     inner class PullRequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(pullrequest: PullRequest) {
+        fun binding(pullrequest: PullRequest) {
             with(pullrequest) {
                 val mTitle = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestTitle)
-                mTitle.text = title.first().toString()
+                mTitle.text = title
+                val mDescription = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestDescription)
+                mDescription.text = description
+                val mUsername = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestUserName)
+                mUsername.text = username.toString()
             }
         }
     }
