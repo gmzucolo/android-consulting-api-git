@@ -3,46 +3,63 @@ package com.example.gmzucolo.appconsultingapigit.features.repositories.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gmzucolo.appconsultingapigit.R
-import com.example.gmzucolo.appconsultingapigit.features.repositories.model.Repository
+import com.example.gmzucolo.appconsultingapigit.databinding.ItemRepositoryListBinding
+import com.example.gmzucolo.appconsultingapigit.features.repositories.repository.model.Repository
 
 class ListRepositoryAdapter(
-    private val listRepositories: MutableList<Repository>
+    private val listener: RepositoryItemListener
 ) : RecyclerView.Adapter<ListRepositoryAdapter.RepositoryViewHolder>() {
 
+    private val repositoryList = ArrayList<Repository>()
+
+    fun addRepositoryItems(repositoryList: List<Repository>) {
+        this.repositoryList.addAll(repositoryList)
+        notifyDataSetChanged()
+    }
+
+    interface RepositoryItemListener {
+        fun onClickedRepository(repository: Repository)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
-        val view =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_repository_list, parent, false)
-        return RepositoryViewHolder(view)
+        val binding: ItemRepositoryListBinding =
+            ItemRepositoryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return RepositoryViewHolder(binding, listener)
     }
 
     override fun onBindViewHolder(holderRepository: RepositoryViewHolder, position: Int) {
-        holderRepository.binding(listRepositories[position])
+        holderRepository.binding(repositoryList[position])
     }
 
     override fun getItemCount(): Int {
-        return listRepositories.size
+        return repositoryList.size
     }
 
 
-    inner class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class RepositoryViewHolder(
+        private val itemBiding: ItemRepositoryListBinding,
+        private val listener: RepositoryItemListener
+    ) : RecyclerView.ViewHolder(itemBiding.root), View.OnClickListener {
 
-        fun binding(repository: Repository) {
-            with(repository) {
-                val mTitle = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryTitle)
-                mTitle.text = title
-                val mDescription = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryDescription)
-                mDescription.text = description
-                val mOwner = itemView.findViewById<TextView>(R.id.appCompatTextViewPullRequestUserName)
-                mOwner.text = owner
-                val mForksCount = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryNumberForks)
-                mForksCount.text = forksCount
-                val mStargazersCount = itemView.findViewById<TextView>(R.id.appCompatTextViewRepositoryStars)
-                mStargazersCount.text = forksCount
-            }
+        private lateinit var repository: Repository
+
+        init {
+            itemBiding.root.setOnClickListener(this)
+        }
+
+        fun binding(item: Repository) = with(itemBiding) {
+            repository = item
+            appCompatTextViewRepositoryTitle.text = item.title
+            appCompatTextViewRepositoryDescription.text = item.description
+            appCompatTextViewPullRequestUserName.text = item.owner.login
+            appCompatTextViewRepositoryNumberForks.text = item.forksCount.toString()
+            appCompatTextViewRepositoryStars.text = item.stargazersCount.toString()
+        }
+
+        override fun onClick(view: View?) {
+            listener.onClickedRepository(repository)
         }
     }
 }
+

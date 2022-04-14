@@ -1,4 +1,4 @@
-package com.example.gmzucolo.appconsultingapigit.features.repositories.model
+package com.example.gmzucolo.appconsultingapigit.features.repositories.repository.model
 
 data class Repository(
     val title: String,

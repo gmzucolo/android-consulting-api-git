@@ -1,4 +1,4 @@
-package com.example.gmzucolo.appconsultingapigit.features.pullrequests.model
+package com.example.gmzucolo.appconsultingapigit.features.pullrequests.repository.model
 
 data class PullRequest(
     val title: String,

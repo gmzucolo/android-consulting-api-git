@@ -10,9 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gmzucolo.appconsultingapigit.R
-import com.example.gmzucolo.appconsultingapigit.features.pullrequests.model.fakePullRequests
-import com.example.gmzucolo.appconsultingapigit.features.pullrequests.view.ListPullRequestAdapter
-import com.example.gmzucolo.appconsultingapigit.features.repositories.model.fakeRepositories
+import com.example.gmzucolo.appconsultingapigit.features.repositories.repository.model.fakeRepositories
 
 class ListRepositoryFragment : Fragment() {
 

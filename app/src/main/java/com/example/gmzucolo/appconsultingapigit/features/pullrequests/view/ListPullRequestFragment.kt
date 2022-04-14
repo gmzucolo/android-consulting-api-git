@@ -10,9 +10,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gmzucolo.appconsultingapigit.R
-import com.example.gmzucolo.appconsultingapigit.features.pullrequests.model.fakePullRequests
+import com.example.gmzucolo.appconsultingapigit.databinding.FragmentListPullRequestBinding
+import com.example.gmzucolo.appconsultingapigit.features.pullrequests.repository.model.fakePullRequests
 
 class ListPullRequestFragment : Fragment() {
+
+    private var binding: FragmentListPullRequestBinding by autoCleared()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +40,13 @@ class ListPullRequestFragment : Fragment() {
         }
 
 
+    }
+    private fun showPullRequestsDataResult(result: ResultDataWithListPullRequest?) {
+        result?.let {
+            val resultMapped = it.toPullRequestListResult()
+            binding.recyclerViewListPullRequest.visible()
+            ListPullRequestAdapter.addAllPulRequests(result.toPullRequesList())
+        }
     }
 
 }
