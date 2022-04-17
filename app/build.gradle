@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,8 +22,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "API_URL", "\"https://api.github.com/\""
+        }
         release {
             minifyEnabled false
+            buildConfigField "String", "API_URL", "\"https://api.github.com/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,6 +42,7 @@ android {
 
 dependencies {
 
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -71,4 +79,27 @@ dependencies {
     implementation("androidx.room:room-migration:2.4.2")
     implementation("androidx.room:room-runtime:2.4.2")
     implementation("androidx.room:room-ktx:2.4.2")
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.0.0")
+
+    //Koin
+    implementation "org.koin:koin-core:2.2.2"
+    implementation "org.koin:koin-core-ext:2.2.2"
+    testImplementation "org.koin:koin-test:2.2.2"
+    implementation "org.koin:koin-androidx-scope:2.2.2"
+    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
+    implementation "org.koin:koin-androidx-fragment:2.2.2"
+    implementation "org.koin:koin-androidx-workmanager:2.2.2"
+    implementation "org.koin:koin-androidx-compose:2.2.2"
+    implementation "org.koin:koin-androidx-ext:2.2.2"
+    kapt "org.koin:koin-android:2.2.2"
+
+    //OkHttp3
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
+    implementation "com.squareup.okhttp3:okhttp:4.2.1"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
 }
