@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.gmzucolo.appconsultingapigit.features.pullrequests.repository.dao.PullRequestListDao
+import com.example.gmzucolo.appconsultingapigit.features.repositories.repository.dao.RepositoryListDao
 import com.example.gmzucolo.appconsultingapigit.util.Constants
 
 abstract class AppDataBase : RoomDatabase() {

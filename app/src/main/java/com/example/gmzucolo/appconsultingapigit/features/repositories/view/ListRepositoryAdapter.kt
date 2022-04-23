@@ -50,7 +50,7 @@ class ListRepositoryAdapter(
 
         fun binding(item: Repository) = with(itemBiding) {
             repository = item
-            appCompatTextViewRepositoryTitle.text = item.title
+            appCompatTextViewRepositoryName.text = item.name
             appCompatTextViewRepositoryDescription.text = item.description
             appCompatTextViewPullRequestUserName.text = item.owner.login
             appCompatTextViewRepositoryNumberForks.text = item.forksCount.toString()

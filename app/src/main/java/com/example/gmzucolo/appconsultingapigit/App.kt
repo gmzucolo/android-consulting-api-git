@@ -1,7 +1,10 @@
 package com.example.gmzucolo.appconsultingapigit
 
 import android.app.Application
+import androidx.viewbinding.BuildConfig
 import com.example.gmzucolo.appconsultingapigit.di.appComponent
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 import timber.log.Timber
 
 open class App : Application() {
@@ -17,7 +20,7 @@ open class App : Application() {
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
         startKoin {
-            androiContext(androidContext = this@App)
+            androidContext(androidContext = this@App)
             modules(provideDependency())
         }
     }

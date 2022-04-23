@@ -51,8 +51,8 @@ class ListPullRequestAdapter(
         fun binding(item: PullRequest) = with(itemBinding) {
             pullrequest = item
             appCompatTextViewPullRequestTitle.text = item.title
-            appCompatTextViewPullRequestDescription.text = item.description
-            appCompatTextViewPullRequestUserName.text = item.username.toString()
+            appCompatTextViewPullRequestDescription.text = item.body
+            appCompatTextViewPullRequestUserName.text = item.user.toString()
         }
 
         override fun onClick(view: View?) {

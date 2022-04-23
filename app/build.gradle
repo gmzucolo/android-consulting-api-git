@@ -61,6 +61,10 @@ dependencies {
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.1")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.1")
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:3.2.0-beta-1"
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:3.2.0-beta-1"
 
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:2.4.1")
@@ -84,17 +88,23 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.0.0")
     implementation("com.squareup.retrofit2:converter-gson:2.0.0")
 
-    //Koin
-    implementation "org.koin:koin-core:2.2.2"
-    implementation "org.koin:koin-core-ext:2.2.2"
-    testImplementation "org.koin:koin-test:2.2.2"
-    implementation "org.koin:koin-androidx-scope:2.2.2"
-    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
-    implementation "org.koin:koin-androidx-fragment:2.2.2"
-    implementation "org.koin:koin-androidx-workmanager:2.2.2"
-    implementation "org.koin:koin-androidx-compose:2.2.2"
-    implementation "org.koin:koin-androidx-ext:2.2.2"
-    kapt "org.koin:koin-android:2.2.2"
+// Koin main features for Android
+    implementation "io.insert-koin:koin-android:3.2.0-beta-1"
+// No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+
+// Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.2.0-beta-1"
+// Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.2.0-beta-1"
+// Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.2.0-beta-1"
+// Jetpack Compose
+    implementation "io.insert-koin:koin-androidx-compose:3.2.0-beta-1"
+
+    // Koin for Ktor
+    implementation "io.insert-koin:koin-ktor:3.2.0-beta-1"
+// SLF4J Logger
+    implementation "io.insert-koin:koin-logger-slf4j:3.2.0-beta-1"
 
     //OkHttp3
     implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
@@ -102,4 +112,10 @@ dependencies {
 
     //Timber
     implementation "com.jakewharton.timber:timber:4.7.1"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 }

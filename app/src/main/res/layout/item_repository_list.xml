@@ -6,7 +6,7 @@
     android:layout_height="128dp">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextViewRepositoryTitle"
+        android:id="@+id/app_compat_text_view_repository_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -27,7 +27,7 @@
         android:theme="@style/textViewDescriptionStyleCustom"
         app:layout_constraintEnd_toStartOf="@+id/appCompatImageViewRepositoryUserAvatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appCompatTextViewRepositoryTitle"
+        app:layout_constraintTop_toBottomOf="@id/app_compat_text_view_repository_name"
         tools:text="Descrição do repositório lorem ipsumDescrição do repositório lorem ipsumDescrição do repositório lorem ipsum" />
 
     <androidx.appcompat.widget.AppCompatTextView
